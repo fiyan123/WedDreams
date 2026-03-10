@@ -1172,3 +1172,163 @@ textarea {
     border-color: #1a1a1a;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
+
+/* --- Responsiveness Improvements --- */
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 95%;
+    }
+
+    .couple-names {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-content {
+        padding: 15px;
+    }
+
+    .couple-names {
+        font-size: 3.5rem;
+    }
+
+    .couple-card-3d {
+        flex: 0 1 100%;
+        max-width: 500px;
+        margin-bottom: 30px;
+    }
+
+    .ampersand-3d {
+        width: 100%;
+        text-align: center;
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 40px 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .couple-names {
+        font-size: 2.8rem;
+    }
+
+    .date {
+        font-size: 1.2rem;
+    }
+
+    .guest-card {
+        padding: 20px;
+    }
+
+    .guest-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px;
+    }
+
+    .event-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .event-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 30px 20px;
+    }
+
+    .gift-card {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer-title {
+        font-size: 2.2rem;
+        letter-spacing: 5px;
+    }
+
+    .footer-names {
+        font-size: 2.5rem;
+    }
+
+    .footer-family-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .family-column h3 {
+        font-size: 1.3rem;
+    }
+
+    .time-unit {
+        min-width: 70px;
+        padding: 15px 10px;
+    }
+
+    .time-unit span {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .couple-names {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 3px;
+    }
+
+    .invite-text {
+        font-size: 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .photo-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+
+    .couple-name {
+        font-size: 1.5rem;
+    }
+
+    .footer-title {
+        font-size: 1.8rem;
+    }
+
+    .footer-names {
+        font-size: 2rem;
+    }
+
+    .map-container {
+        border-width: 3px;
+    }
+
+    .music-btn,
+    .theme-btn {
+        width: 45px;
+        height: 45px;
+    }
+}
