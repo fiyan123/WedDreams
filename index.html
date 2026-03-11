@@ -5,21 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan Alfan & Sofi</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="icon" type="image/png" href="assets/favicon.png" draggable="false">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
+
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="no-scroll">
+
     <!-- Loading Screen -->
     <div id="loader" class="loader-overlay">
         <div class="loader-content">
@@ -43,7 +46,7 @@
             <p class="invite-text" data-aos="fade-up" data-aos-delay="600">Kami Mengundang Bapak/Ibu/Saudara/i Untuk
                 Menghadiri Acara Pernikahan Kami</p>
             <h1 class="couple-names" data-aos="fade-up" data-aos-delay="800">ALFAN & SOFI</h1>
-            <p class="date" data-aos="fade-up" data-aos-delay="1000">Minggu, 12 Desember 20xx</p>
+            <p class="date" data-aos="fade-up" data-aos-delay="1000">Sabtu, 11 April 2026</p>
 
             <div class="guest-card" data-aos="fade-up" data-aos-delay="1200">
                 <p>Kepada Yth: Bpk/Ibu/Saudara/I</p>
@@ -59,19 +62,67 @@
     <!-- Main Content (Hidden until opened) -->
     <main id="main-content" class="content-hidden">
 
-        <!-- Opening Section -->
-        <section class="opening section-padding text-center">
+        <!-- Intro Arrival Section -->
+        <section id="intro-arrival" class="intro-arrival section-padding text-center">
             <div class="container">
-                <div class="header-decoration" data-aos="fade-up">
-                    <img src="https://img.icons8.com/ios/50/785a3c/wedding-rings.png" alt="rings">
+                <div class="arrival-frame" data-aos="fade-up">
+                    <div class="arch-portrait">
+                        <img src="assets/hero.png" alt="Alfan & Sofi" draggable="false">
+                    </div>
+                    <div class="frame-ornament"></div>
                 </div>
-                <p class="bismillah" data-aos="fade-up">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
-                <p class="greeting" data-aos="fade-up" data-aos-delay="200">
-                    Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan.
-                    Ya Allah rahmatilah pernikahan kami:
-                </p>
+
+                <div class="arrival-text" data-aos="fade-up" data-aos-delay="200">
+                    <p class="intro-subtitle">The Wedding Of</p>
+                    <h2 class="intro-couple-names">Alfan & Sofi</h2>
+                    <p class="intro-message">
+                        Kami akan menikah, kami ingin anda menjadi bagian dari hari bahagia kami
+                    </p>
+                    <p class="intro-date">Sabtu, 11 April 2026</p>
+                </div>
+
+                <div class="arrival-decoration" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="decoration-line"></div>
+                    <img src="https://img.icons8.com/ios/50/785a3c/wedding-rings.png" alt="rings" draggable="false">
+                    <div class="decoration-line"></div>
+                </div>
             </div>
         </section>
+
+        <!-- Quote Section -->
+        <section class="quote">
+            <div class="quote-overlay"></div>
+            <div class="container">
+                <p data-aos="fade-up">
+                    وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ
+                    بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً إِنَّ فِي ذَلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ
+                    <br><br>
+                    "Dan Di Antara Tanda-Tanda (Kebesaran)-Nya Ialah Dia Menciptakan Pasangan-Pasangan Untukmu Dari
+                    Jenismu Sendiri, Agar Kamu Cenderung Dan Merasa Tenteram Kepadanya, Dan Dia Menjadikan Di Antaramu
+                    Rasa Kasih Dan Sayang. Sesungguhnya Pada Yang Demikian Itu Benar-Benar Terdapat Tanda-Tanda
+                    (Kebesaran Allah) Bagi Kaum Yang Berpikir."
+                </p>
+                <span data-aos="fade-up" data-aos-delay="200">(Ar-Rum: 21)</span>
+            </div>
+        </section>
+
+        <!-- Greeting Section -->
+        <section class="greeting-message section-padding text-center" data-aos="fade-up">
+            <div class="container">
+                <div class="greeting-card">
+                    <h2 class="greeting-title">Assalamu'alaikum Wr. Wb.</h2>
+                    <p class="greeting-text">
+                        Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, insyaaAllah kami akan
+                        menyelenggarakan acara pernikahan anak kami:
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Border -->
+        <div class="section-border">
+            <div class="border-ornament"></div>
+        </div>
 
         <!-- Couple Section -->
         <section class="couple section-padding">
@@ -80,7 +131,7 @@
                     <div class="card-inner">
                         <div class="photo-wrapper">
                             <div class="photo-ornament"></div>
-                            <img src="assets/groom.png" alt="Muhammad Alfan">
+                            <img src="assets/groom.png" alt="Muhammad Alfan" draggable="false">
                         </div>
                         <div class="couple-name-wrapper">
                             <div class="line"></div>
@@ -98,14 +149,14 @@
                 </div>
 
                 <div class="ampersand-3d" data-aos="zoom-in">
-                    <img src="https://img.icons8.com/ios/100/785a3c/ampersand.png" alt="&">
+                    <img src="https://img.icons8.com/ios/100/785a3c/ampersand.png" alt="&" draggable="false">
                 </div>
 
                 <div class="couple-card-3d" data-aos="fade-left">
                     <div class="card-inner">
                         <div class="photo-wrapper">
                             <div class="photo-ornament"></div>
-                            <img src="assets/bride.png" alt="Sofi">
+                            <img src="assets/bride.png" alt="Sofi" draggable="false">
                         </div>
                         <div class="couple-name-wrapper">
                             <div class="line"></div>
@@ -124,25 +175,18 @@
             </div>
         </section>
 
-
-        <!-- Quote Section -->
-        <section class="quote">
-            <div class="quote-overlay"></div>
-            <div class="container">
-                <p data-aos="fade-up">
-                    "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari
-                    jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu
-                    rasa kasih dan sayang."
-                </p>
-                <span data-aos="fade-up" data-aos-delay="200">(Ar-Rum: 21)</span>
-            </div>
-        </section>
+        <!-- Section Border -->
+        <div class="section-border">
+            <div class="border-ornament"></div>
+        </div>
 
         <!-- Event Section -->
         <section class="event section-padding">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Wedding Event</h2>
-                <p class="event-subtitle" data-aos="fade-up">Save the date for our special day</p>
+                <p class="event-subtitle" data-aos="fade-up">Dengan segala kerendahan hati kami berharap kehadiran
+                    kehadiran Bapak/Ibu/Saudara/i dalam acara pernikahan anak kami yang akan diselenggarakan pada :
+                </p>
 
                 <!-- Countdown -->
                 <div id="countdown" class="countdown" data-aos="fade-up">
@@ -169,7 +213,7 @@
                         <div class="icon-box"><i class="fas fa-heart"></i></div>
                         <h3>Akad Nikah</h3>
                         <div class="info">
-                            <p><i class="far fa-calendar"></i> Minggu, 12 Des 20xx</p>
+                            <p><i class="far fa-calendar"></i> Sabtu, 11 April 2026</p>
                             <p><i class="far fa-clock"></i> 08.00 - 10.00 WIB</p>
                         </div>
                         <p class="location">Masjid Agung Al-Falah, Jakarta</p>
@@ -180,12 +224,34 @@
                         <div class="icon-box"><i class="fas fa-glass-cheers"></i></div>
                         <h3>Resepsi</h3>
                         <div class="info">
-                            <p><i class="far fa-calendar"></i> Minggu, 12 Des 20xx</p>
+                            <p><i class="far fa-calendar"></i> Sabtu, 11 April 2026</p>
                             <p><i class="far fa-clock"></i> 11.00 - Selesai</p>
                         </div>
                         <p class="location">Hotel Ritz-Carlton, Mega Kuningan</p>
                         <a href="#" class="btn-outline">Google Maps</a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery section-padding bg-light">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Wedding Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-aos="zoom-in"><img src="assets/gallery_1.png" alt="Gallery 1"
+                            draggable="false"></div>
+                    <div class="gallery-item large" data-aos="zoom-in"><img src="assets/gallery_2.png" alt="Gallery 2"
+                            draggable="false">
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in"><img src="assets/gallery_3.png" alt="Gallery 3"
+                            draggable="false"></div>
+                    <div class="gallery-item" data-aos="zoom-in"><img src="assets/gallery_4.png" alt="Gallery 4"
+                            draggable="false"></div>
+                    <div class="gallery-item" data-aos="zoom-in"><img src="assets/gallery_5.png" alt="Gallery 5"
+                            draggable="false"></div>
+                    <div class="gallery-item" data-aos="zoom-in"><img src="assets/gallery_6.png" alt="Gallery 6"
+                            draggable="false"></div>
                 </div>
             </div>
         </section>
@@ -234,8 +300,11 @@
             <div class="container text-center">
                 <h2 class="section-title" data-aos="fade-up">Lokasi Acara</h2>
                 <div class="location-info" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="venue-name">Hotel Ritz-Carlton</h3>
-                    <p class="venue-address">Mega Kuningan, Jakarta Selatan, DKI Jakarta</p>
+                    <h3 class="venue-name">Kediaman Mempelai Wanita</h3>
+                    <p class="venue-address">
+                        (Keluarga Alm. Bapak [Nama Ayah Sofi] & Ibu [Nama Ibu Sofi]) <br>
+                        Jl. Mega Kuningan No. XX, Jakarta Selatan
+                    </p>
                 </div>
 
                 <div class="map-container" data-aos="zoom-in" data-aos-delay="400">
@@ -254,26 +323,7 @@
             </div>
         </section>
 
-
-
-        <!-- Gallery Section -->
-        <section class="gallery section-padding bg-light">
-            <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Wedding Gallery</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item" data-aos="zoom-in"><img src="assets/gallery_1.png" alt="Gallery 1"></div>
-                    <div class="gallery-item large" data-aos="zoom-in"><img src="assets/gallery_2.png" alt="Gallery 2">
-                    </div>
-                    <div class="gallery-item" data-aos="zoom-in"><img src="assets/gallery_3.png" alt="Gallery 3"></div>
-                    <div class="gallery-item" data-aos="zoom-in"><img src="assets/gallery_4.png" alt="Gallery 4"></div>
-                    <div class="gallery-item" data-aos="zoom-in"><img src="assets/gallery_5.png" alt="Gallery 5"></div>
-                    <div class="gallery-item" data-aos="zoom-in"><img src="assets/gallery_6.png" alt="Gallery 6"></div>
-                </div>
-            </div>
-        </section>
-
         <!-- Footer Section -->
-
         <section class="footer">
             <div class="footer-overlay"></div>
             <div class="container overflow-hidden">
@@ -311,7 +361,6 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- Theme Toggle -->
@@ -332,7 +381,7 @@
     <!-- Image Modal -->
     <div id="image-modal" class="modal">
         <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modal-img">
+        <img class="modal-content" id="modal-img" draggable="false">
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Countdown Timer
-    const weddingDate = new Date('Dec 12, 2026 08:00:00').getTime();
+    const weddingDate = new Date('April 11, 2026 08:00:00').getTime();
 
     const updateCountdown = () => {
         const now = new Date().getTime();

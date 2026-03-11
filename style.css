@@ -1332,3 +1332,377 @@ textarea {
         height: 45px;
     }
 }
+/* Intro Arrival Section - Luxurious Refinement with Dark Mode Support */
+.intro-arrival {
+    background-color: var(--body-bg); /* Use theme variable */
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+    transition: background-color 0.3s ease;
+}
+
+.arrival-frame {
+    position: relative;
+    max-width: 450px; 
+    margin: 0 auto 60px;
+}
+
+.arch-portrait {
+    width: 100%;
+    aspect-ratio: 4/5.5;
+    border-radius: 250px 250px 0 0;
+    overflow: hidden;
+    border: 12px solid var(--card-bg); /* Use card-bg for adaptive border */
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.15),
+        0 0 0 4px var(--gold-color);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme='dark'] .arch-portrait {
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 0 0 4px var(--gold-color);
+}
+
+.arch-portrait:hover {
+    transform: scale(1.02) translateY(-10px);
+}
+
+.arch-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.frame-ornament {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: 0;
+    border: 3px solid var(--gold-color);
+    border-radius: 270px 270px 0 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.arrival-text {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.intro-subtitle {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+[data-theme='dark'] .intro-subtitle {
+    color: var(--gold-color);
+}
+
+.intro-couple-names {
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    color: var(--gold-color);
+    margin-bottom: 25px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+.intro-message {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--body-text);
+    line-height: 1.8;
+    margin: 0 auto 30px;
+    max-width: 85%;
+    font-style: italic;
+}
+
+.intro-date {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    display: block;
+}
+
+[data-theme='dark'] .intro-date {
+    color: var(--gold-color);
+}
+
+.arrival-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 80%;
+    margin: 0 auto 50px;
+}
+
+.decoration-line {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-color), transparent);
+    flex-grow: 1;
+}
+
+.arrival-decoration img {
+    width: 40px;
+    height: auto;
+    filter: sepia(1) saturate(1.5) hue-rotate(350deg);
+}
+
+[data-theme='dark'] .arrival-decoration img {
+    filter: sepia(1) saturate(1.2) hue-rotate(350deg) brightness(1.2);
+}
+
+/* Mobile Adjustments for Intro Arrival */
+@media (max-width: 768px) {
+    .arrival-frame {
+        max-width: 320px;
+    }
+    
+    .intro-couple-names {
+        font-size: 3rem;
+    }
+    
+    .intro-message {
+        font-size: 1.1rem;
+        max-width: 90%;
+    }
+    
+    .intro-subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 3px;
+    }
+}
+
+
+/* Section Borders & Delimiters */
+.section-border {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.border-ornament {
+    width: 200px;
+    height: 15px;
+    background-image: url('https://img.icons8.com/ios/50/785a3c/decorative-scroll.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    filter: sepia(1) saturate(2) hue-rotate(350deg);
+}
+
+[data-theme='dark'] .border-ornament {
+    opacity: 0.3;
+    filter: sepia(1) saturate(1.5) hue-rotate(350deg) brightness(1.2);
+}
+
+.section-border::before,
+.section-border::after {
+    content: '';
+    height: 1px;
+    flex: 1;
+    max-width: 300px;
+    background: linear-gradient(to right, transparent, var(--gold-color), transparent);
+}
+
+/* Greeting Section */
+.greeting-message {
+    background-color: var(--body-bg);
+    transition: background-color 0.3s ease;
+}
+
+.greeting-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 60px 40px;
+    border-radius: 100px 100px 20px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(120, 90, 60, 0.1);
+    transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .greeting-card {
+    border-color: rgba(212, 175, 55, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.greeting-title {
+    font-family: var(--font-hand);
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+[data-theme='dark'] .greeting-title {
+    color: var(--gold-color);
+}
+
+.greeting-text {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: var(--body-text);
+    line-height: 1.8;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .greeting-card {
+        padding: 40px 20px;
+        border-radius: 50px 50px 15px 15px;
+    }
+    
+    .greeting-title {
+        font-size: 2.2rem;
+    }
+    
+    .greeting-text {
+        font-size: 1rem;
+    }
+}
+
+/* --- Advanced Responsiveness & Mobile Landscape Optimization --- */
+
+/* Mobile Landscape (SIDEYS MODE) */
+@media screen and (max-width: 932px) and (orientation: landscape) and (max-height: 500px) {
+    .hero {
+        min-height: 100vh;
+        height: auto;
+        padding: 40px 0;
+        display: flex;
+        align-items: center; /* Center content vertically */
+    }
+    
+    .hero-content {
+        padding-top: 10px;
+        transform: scale(0.9); /* Scale down hero content to fit */
+    }
+
+    .couple-names {
+        font-size: 2.2rem;
+        margin: 10px 0;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .invite-text {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .guest-card {
+        padding: 15px;
+    }
+
+    /* Adjust floating buttons in landscape to be less intrusive */
+    .music-player {
+        bottom: 15px;
+        left: 15px;
+    }
+
+    .theme-btn {
+        bottom: 15px;
+        left: 75px; /* Shifted for landscape visibility */
+    }
+
+    .intro-arrival {
+        padding: 60px 0;
+    }
+
+    .arrival-frame {
+        max-width: 180px; /* Further scaled down for landscape */
+        margin-bottom: 20px;
+    }
+
+    .intro-couple-names {
+        font-size: 2rem;
+    }
+
+    .greeting-card {
+        padding: 25px 20px;
+        border-radius: 40px 40px 10px 10px;
+    }
+
+    .greeting-title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .section-padding {
+        padding: 30px 0;
+    }
+
+    .footer-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* Specific Tablet & Small Desktop Adjustments */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .couple-card-3d {
+        flex: 0 1 45%;
+    }
+}
+
+/* Extra Small Devices */
+@media screen and (max-width: 375px) {
+    .couple-names {
+        font-size: 2rem;
+    }
+    
+    .intro-couple-names {
+        font-size: 2.5rem;
+    }
+    
+    .greeting-title {
+        font-size: 1.8rem;
+    }
+    
+    .time-unit {
+        min-width: 60px;
+        gap: 5px;
+    }
+}
+
+/* Utility to prevent overflow on very small widths */
+.container {
+    overflow-wrap: break-word;
+}
+
+/* Global Image Protection */
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
