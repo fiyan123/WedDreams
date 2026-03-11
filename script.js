@@ -202,48 +202,63 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.querySelector('.modal-close');
     const galleryImages = document.querySelectorAll('.gallery-item img, .portrait-frame img');
 
-    galleryImages.forEach(img => {
-        img.addEventListener('click', () => {
-            modal.style.display = "block";
-            modalImg.src = img.src;
-            document.body.classList.add('no-scroll');
+    if (modal && modalImg && closeBtn) {
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                modal.style.display = "block";
+                modalImg.src = img.src;
+                document.body.classList.add('no-scroll');
+            });
         });
-    });
 
-    const closeModal = () => {
-        modal.style.display = "none";
-        // Only remove no-scroll if the invitation is already open
-        const mainContent = document.getElementById('main-content');
-        if (mainContent.classList.contains('content-visible')) {
-            document.body.classList.remove('no-scroll');
-        }
-    };
+        const closeModal = () => {
+            modal.style.display = "none";
+            const mainContent = document.getElementById('main-content');
+            if (mainContent && mainContent.classList.contains('content-visible')) {
+                document.body.classList.remove('no-scroll');
+            }
+        };
 
-    closeBtn.addEventListener('click', closeModal);
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    }
 
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
-
-    // Hero Background Slideshow
+    // Hero Background Slideshow (Smooth Cross-fade)
     const heroImages = [
         'assets/hero.png',
         'assets/gallery_1.png',
         'assets/gallery_2.png',
-        'assets/gallery_3.png'
+        'assets/gallery_3.png',
+        'assets/gallery_4.png'
     ];
     let currentHeroIndex = 0;
-    const heroElement = document.getElementById('hero');
+    const sliderBgs = document.querySelectorAll('.hero-slider-bg');
+    let activeBgIndex = 0;
 
     function nextHeroBackground() {
+        // Prepare next image
         currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
-        heroElement.style.backgroundImage = `url('${heroImages[currentHeroIndex]}')`;
+        
+        // Find next background layer
+        const nextBgIndex = (activeBgIndex + 1) % sliderBgs.length;
+        const nextBg = sliderBgs[nextBgIndex];
+        const currentBg = sliderBgs[activeBgIndex];
+
+        // Set next image and fade in
+        nextBg.style.backgroundImage = `url('${heroImages[currentHeroIndex]}')`;
+        nextBg.classList.add('active');
+        
+        // Fade out current
+        currentBg.classList.remove('active');
+        
+        // Update active index
+        activeBgIndex = nextBgIndex;
     }
 
-    // Change background every 5 seconds
-    setInterval(nextHeroBackground, 5000);
+    // Change background every 6 seconds (includes 2s transition)
+    setInterval(nextHeroBackground, 6000);
 
     // Theme Management
     const themeToggle = document.getElementById('theme-toggle');
