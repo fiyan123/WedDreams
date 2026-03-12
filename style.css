@@ -1719,3 +1719,157 @@ img {
     -o-user-drag: none;
     user-drag: none;
 }
+
+/* --- Event Card Redesign --- */
+.event-card {
+    flex: 1;
+    max-width: 450px;
+    background: var(--card-bg) !important;
+    color: var(--card-text) !important;
+    padding: 50px 40px !important;
+    border-radius: 25px !important;
+    text-align: center !important;
+    box-shadow: 0 15px 35px rgba(120, 90, 60, 0.1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease !important;
+    border: 1px solid rgba(120, 90, 60, 0.1) !important;
+    z-index: 1 !important;
+}
+
+.card-glass-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: -1;
+}
+
+.event-card:hover {
+    transform: translateY(-15px) scale(1.02) !important;
+    box-shadow: 0 30px 60px rgba(120, 90, 60, 0.2) !important;
+}
+
+.event-card .icon-box {
+    font-size: 3rem !important;
+    color: var(--primary-color) !important;
+    margin-bottom: 25px !important;
+    display: inline-block !important;
+    padding: 20px !important;
+    background: rgba(120, 90, 60, 0.05) !important;
+    border-radius: 50% !important;
+    transition: transform 0.3s ease !important;
+}
+
+.event-card:hover .icon-box {
+    transform: rotateY(360deg) !important;
+}
+
+.event-card h3 {
+    font-size: 2.2rem !important;
+    margin-bottom: 25px !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+}
+
+.schedule-box {
+    background: rgba(120, 90, 60, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border-left: 3px solid var(--gold-color);
+}
+
+.schedule-box p {
+    font-size: 1.1rem !important;
+    color: var(--primary-color) !important;
+    margin: 5px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    font-weight: 500 !important;
+}
+
+.location-box {
+    margin-bottom: 35px;
+}
+
+.venue-name {
+    font-family: var(--font-serif) !important;
+    font-size: 1.4rem !important;
+    color: var(--primary-color) !important;
+    margin-bottom: 10px !important;
+    font-weight: 600 !important;
+}
+
+.venue-address {
+    font-size: 0.95rem !important;
+    color: var(--text-muted) !important;
+    line-height: 1.6 !important;
+}
+
+.btn-map {
+    margin-top: 10px !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px !important;
+    padding: 12px 35px !important;
+}
+
+[data-theme="dark"] .card-glass-overlay {
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.6), rgba(18, 18, 18, 0.4));
+}
+
+[data-theme="dark"] .schedule-box {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+[data-theme="dark"] .schedule-box p {
+    color: var(--gold-color) !important;
+}
+
+/* --- Gift Section Toggle Styles --- */
+.toggle-container {
+    margin: 40px 0;
+}
+
+.gift-content-hidden {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gift-content-visible {
+    max-height: 3000px;
+    opacity: 1;
+    margin-top: 20px;
+}
+
+.gift-address-container {
+    background: rgba(120, 90, 60, 0.03);
+    border-radius: 20px;
+    margin-top: 50px;
+    border: 1px dashed rgba(120, 90, 60, 0.2);
+}
+
+[data-theme="dark"] .gift-address-container {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(212, 175, 55, 0.2);
+}
+
+.mt-4 { margin-top: 1.5rem !important; }
+.mb-4 { margin-bottom: 1.5rem !important; }
+
+/* --- Global Text Animation Refinements --- */
+[data-aos] {
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+h1, h2, h3, h4, p, .location, .venue-name, .venue-address, .family-info, .couple-name {
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}

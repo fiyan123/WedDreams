@@ -293,6 +293,29 @@ document.addEventListener('DOMContentLoaded', () => {
         setTheme(newTheme);
     });
 
+    // Toggle Gift Details
+    const btnGiftToggle = document.getElementById('btn-gift-toggle');
+    const giftContent = document.getElementById('gift-content');
+
+    if (btnGiftToggle && giftContent) {
+        btnGiftToggle.addEventListener('click', () => {
+            const isHidden = giftContent.classList.contains('gift-content-hidden');
+            
+            if (isHidden) {
+                giftContent.classList.replace('gift-content-hidden', 'gift-content-visible');
+                btnGiftToggle.innerHTML = '<i class="fas fa-times"></i> Tutup';
+                
+                // Refresh AOS to trigger animations inside the revealed content
+                setTimeout(() => {
+                    AOS.refresh();
+                }, 100);
+            } else {
+                giftContent.classList.replace('gift-content-visible', 'gift-content-hidden');
+                btnGiftToggle.innerHTML = '<i class="fas fa-gift"></i> Kirim Hadiah';
+            }
+        });
+    }
+
     // Listen for system theme changes
     systemDarkMode.addEventListener('change', (e) => {
         if (!localStorage.getItem('theme')) {
