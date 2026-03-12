@@ -316,6 +316,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Display Guest Name from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestName = urlParams.get('to');
+    const guestElement = document.getElementById('guest-name');
+    const guestFooterElement = document.getElementById('guest-name-footer');
+
+    if (guestName) {
+        // urlParams.get naturally handles '+' as spaces
+        if (guestElement) guestElement.innerHTML = guestName;
+        if (guestFooterElement) guestFooterElement.innerHTML = guestName;
+    }
+
     // Listen for system theme changes
     systemDarkMode.addEventListener('change', (e) => {
         if (!localStorage.getItem('theme')) {
