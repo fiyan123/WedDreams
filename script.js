@@ -227,11 +227,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Hero Background Slideshow (Smooth Cross-fade)
     const heroImages = [
-        'assets/hero.png',
-        'assets/gallery_1.png',
-        'assets/gallery_2.png',
-        'assets/gallery_3.png',
-        'assets/gallery_4.png'
+        'assets/image/1.jpeg',
+        'assets/image/2.jpeg',
+        'assets/image/3.jpeg',
+        'assets/image/4.jpeg',
+        'assets/image/5.jpeg'
     ];
     let currentHeroIndex = 0;
     const sliderBgs = document.querySelectorAll('.hero-slider-bg');
