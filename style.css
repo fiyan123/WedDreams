@@ -261,15 +261,17 @@ h3 {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
     color: var(--white);
     text-align: center;
     overflow: hidden;
+    padding: 60px 15px;
 }
 
 .hero-slider-bg {
@@ -301,8 +303,30 @@ h3 {
 .hero-content {
     position: relative;
     z-index: 2;
-    padding: 20px;
+    padding: 20px 0;
     max-width: 800px;
+    width: 100%;
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+    .hero {
+        padding: 40px 15px;
+    }
+    .hero-content {
+        padding: 10px 0;
+    }
+    .subtitle {
+        margin-bottom: 15px;
+    }
+    .invite-text {
+        margin-bottom: 10px;
+    }
+    .date {
+        margin-bottom: 20px;
+    }
+    .guest-card {
+        padding: 15px;
+    }
 }
 
 .logo-circle {
@@ -337,15 +361,32 @@ h3 {
 }
 
 .invite-text {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.1rem);
     font-style: italic;
-    margin-bottom: 20px;
+    margin: 0 auto 15px;
+    max-width: 90%;
+    line-height: 1.5;
 }
 
 .couple-names {
-    font-size: 5rem;
-    margin: 20px 0;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    margin: 10px 0;
     font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-align: center;
+    line-height: 1.1;
+}
+
+.amp-classic {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-family: var(--font-hand);
+    color: var(--gold-color);
+    font-weight: 400;
+    margin: 5px 0;
 }
 
 .date {
@@ -485,7 +526,6 @@ h3 {
 
 .couple-name {
     font-family: var(--font-serif);
-    font-size: 1.8rem;
     color: var(--primary-color);
     white-space: nowrap;
 }
@@ -1192,19 +1232,11 @@ textarea {
     .container {
         max-width: 95%;
     }
-
-    .couple-names {
-        font-size: 4rem;
-    }
 }
 
 @media (max-width: 992px) {
     .hero-content {
         padding: 15px;
-    }
-
-    .couple-names {
-        font-size: 3.5rem;
     }
 
     .couple-card-3d {
@@ -1232,10 +1264,6 @@ textarea {
 
     .hero-content {
         max-width: 100%;
-    }
-
-    .couple-names {
-        font-size: 2.8rem;
     }
 
     .date {
@@ -1301,9 +1329,6 @@ textarea {
 }
 
 @media (max-width: 480px) {
-    .couple-names {
-        font-size: 2.2rem;
-    }
 
     .subtitle {
         font-size: 0.9rem;
