@@ -349,34 +349,34 @@ h3 {
 
 .subtitle {
     letter-spacing: 5px;
-    font-size: 1.1rem;
-    margin-bottom: 20px;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    margin-bottom: 10px;
 }
 
 .divider {
-    width: 100px;
+    width: 80px;
     height: 1px;
     background: var(--white);
-    margin: 0 auto 20px;
+    margin: 0 auto 10px;
 }
 
 .invite-text {
     font-size: clamp(1rem, 2vw, 1.1rem);
     font-style: italic;
-    margin: 0 auto 15px;
+    margin: 0 auto 10px;
     max-width: 90%;
     line-height: 1.5;
 }
 
 .couple-names {
-    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
-    margin: 10px 0;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin: 5px 0;
     font-weight: 700;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 0;
     text-align: center;
     line-height: 1.1;
 }
@@ -390,26 +390,26 @@ h3 {
 }
 
 .date {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin-bottom: 20px;
 }
 
 .guest-card {
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 30px;
+    padding: 20px 30px;
     border-radius: 15px;
 }
 
 .guest-card h3 {
-    font-size: 1.8rem;
-    margin: 10px 0;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    margin: 5px 0;
 }
 
 .disclaimer {
-    font-size: 0.8rem;
-    margin-bottom: 25px;
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+    margin-bottom: 15px;
 }
 
 /* Opening Section */
@@ -1264,6 +1264,7 @@ textarea {
 
     .hero-content {
         max-width: 100%;
+        margin-top: -10vh;
     }
 
     .date {
