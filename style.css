@@ -596,21 +596,43 @@ h3 {
     color: var(--primary-color);
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+.gallery-swiper {
+    width: 100%;
+    padding-bottom: 50px;
 }
 
-.gallery-item {
-    aspect-ratio: 1/1;
+.gallery-swiper .swiper-slide {
+    aspect-ratio: 4/5;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.gallery-item.large {
-    grid-row: span 2;
-    aspect-ratio: auto;
+/* Swiper Controls Customization */
+.gallery-swiper .swiper-pagination-bullet {
+    background: var(--primary-color);
+    opacity: 0.5;
+}
+
+.gallery-swiper .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: var(--gold-color);
+}
+
+.gallery-swiper .swiper-button-next,
+.gallery-swiper .swiper-button-prev {
+    color: var(--gold-color);
+    background: rgba(255, 255, 255, 0.9);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-swiper .swiper-button-next::after,
+.gallery-swiper .swiper-button-prev::after {
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .gallery-item img {
@@ -627,7 +649,7 @@ h3 {
 /* Quote Section */
 .quote {
     padding: 100px 0;
-    background-image: url('assets/hero.png');
+    background-image: url('assets/image/m.jpeg');
     background-attachment: fixed;
     background-size: cover;
     position: relative;
@@ -751,7 +773,7 @@ textarea {
 /* Footer Section */
 .footer {
     padding: 100px 0;
-    background-image: url('assets/hero.png');
+    background-image: url('assets/image/k.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

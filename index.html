@@ -18,6 +18,9 @@
 
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -39,7 +42,7 @@
 
     <!-- Hero / Cover Section -->
     <header id="hero" class="hero">
-        <div class="hero-slider-bg active" style="background-image: url('assets/image/1.jpeg');"></div>
+        <div class="hero-slider-bg active" style="background-image: url('assets/image/m.jpeg');"></div>
         <div class="hero-slider-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -264,21 +267,44 @@
         <section class="gallery section-padding bg-light">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Our Gallery</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item" data-aos="zoom-in"><img src="assets/image/1.jpeg" alt="Gallery 1"
-                            draggable="false"></div>
-                    <div class="gallery-item large" data-aos="zoom-in"><img src="assets/image/2.jpeg" alt="Gallery 2"
-                            draggable="false"></div>
-                    <div class="gallery-item" data-aos="zoom-in"><img src="assets/image/3.jpeg" alt="Gallery 3"
-                            draggable="false"></div>
-                    <div class="gallery-item" data-aos="zoom-in"><img src="assets/image/4.jpeg" alt="Gallery 4"
-                            draggable="false"></div>
-                    <div class="gallery-item" data-aos="zoom-in"><img src="assets/image/5.jpeg" alt="Gallery 5"
-                            draggable="false"></div>
-                    <div class="gallery-item" data-aos="zoom-in"
-                        style="display: flex; justify-content: center; align-items: center;">
-                        <img src="assets/image/6.jpeg" alt="Gallery 6" draggable="false">
+                <div class="swiper gallery-swiper" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide gallery-item"><img src="assets/image/a.jpeg" alt="Gallery 1"
+                                draggable="false"></div>
+                        <div class="swiper-slide gallery-item"><img src="assets/image/b.jpeg" alt="Gallery 2"
+                                draggable="false"></div>
+                        <div class="swiper-slide gallery-item"><img src="assets/image/c.jpeg" alt="Gallery 3"
+                                draggable="false"></div>
+                        <div class="swiper-slide gallery-item"><img src="assets/image/d.jpeg" alt="Gallery 4"
+                                draggable="false"></div>
+                        <div class="swiper-slide gallery-item"><img src="assets/image/e.jpeg" alt="Gallery 5"
+                                draggable="false"></div>
+                        <div class="swiper-slide gallery-item"><img src="assets/image/f.jpeg" alt="Gallery 6"
+                                draggable="false"></div>
+                        <div class="swiper-slide gallery-item"><img src="assets/image/g.jpeg" alt="Gallery 7"
+                                draggable="false"></div>
+                        <div class="swiper-slide gallery-item"><img src="assets/image/h.jpeg" alt="Gallery 8"
+                                draggable="false"></div>
+                        <div class="swiper-slide gallery-item"><img src="assets/image/i.jpeg" alt="Gallery 9"
+                                draggable="false"></div>
+                        <div class="swiper-slide gallery-item"><img src="assets/image/j.jpeg" alt="Gallery 10"
+                                draggable="false"></div>
+                        <div class="swiper-slide gallery-item"><img src="assets/image/k.jpeg" alt="Gallery 11"
+                                draggable="false"></div>
+                        <div class="swiper-slide gallery-item"><img src="assets/image/l.jpeg" alt="Gallery 12"
+                                draggable="false"></div>
+                        <div class="swiper-slide gallery-item"><img src="assets/image/m.jpeg" alt="Gallery 13"
+                                draggable="false"></div>
+                        <div class="swiper-slide gallery-item"><img src="assets/image/n.jpeg" alt="Gallery 14"
+                                draggable="false"></div>
+                        <div class="swiper-slide gallery-item"><img src="assets/image/o.jpeg" alt="Gallery 15"
+                                draggable="false"></div>
                     </div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                    <!-- Navigation -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
             </div>
         </section>
@@ -306,22 +332,22 @@
                                 <i class="fas fa-university"></i>
                             </div>
                             <h4 class="bank-name">BANK BCA</h4>
-                            <p class="account-number" id="acc-bca">1234567890</p>
-                            <p class="account-holder">A/N ALFAN</p>
+                            <p class="account-number" id="acc-bca">8106260716</p>
+                            <p class="account-holder">A/N MUHAMMAD ALFAN</p>
                             <button class="btn-copy" onclick="copyToClipboard('acc-bca', this)">
                                 <i class="far fa-copy"></i> Salin No. Rekening
                             </button>
                         </div>
 
-                        <!-- Bank Card 2: Mandiri -->
+                        <!-- Bank Card 2: CIMB NIAGA -->
                         <div class="gift-card">
                             <div class="bank-icon">
                                 <i class="fas fa-credit-card"></i>
                             </div>
-                            <h4 class="bank-name">BANK MANDIRI</h4>
-                            <p class="account-number" id="acc-mandiri">0987654321098</p>
-                            <p class="account-holder">A/N SOFI</p>
-                            <button class="btn-copy" onclick="copyToClipboard('acc-mandiri', this)">
+                            <h4 class="bank-name">BANK CIMB NIAGA</h4>
+                            <p class="account-number" id="acc-cimb">707153311100</p>
+                            <p class="account-holder">A/N SOFIYATUN KHODIJAH</p>
+                            <button class="btn-copy" onclick="copyToClipboard('acc-cimb', this)">
                                 <i class="far fa-copy"></i> Salin No. Rekening
                             </button>
                         </div>
@@ -421,6 +447,7 @@
         <img class="modal-content" id="modal-img" draggable="false">
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>

@@ -64,6 +64,33 @@ document.addEventListener('DOMContentLoaded', () => {
         once: true
     });
 
+    // Initialize Swiper
+    const gallerySwiper = new Swiper('.gallery-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            }
+        }
+    });
+
     // Handle "Open Invitation"
     const btnOpen = document.getElementById('btn-open');
     const hero = document.getElementById('hero');
@@ -227,11 +254,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Hero Background Slideshow (Smooth Cross-fade)
     const heroImages = [
-        'assets/image/1.jpeg',
-        'assets/image/2.jpeg',
-        'assets/image/3.jpeg',
-        'assets/image/4.jpeg',
-        'assets/image/5.jpeg'
+        'assets/image/a.jpeg',
+        'assets/image/b.jpeg',
+        'assets/image/c.jpeg',
+        'assets/image/d.jpeg',
+        'assets/image/e.jpeg',
+        'assets/image/f.jpeg',
+        'assets/image/g.jpeg',
+        'assets/image/h.jpeg',
+        'assets/image/i.jpeg',
+        'assets/image/j.jpeg'
     ];
     let currentHeroIndex = 0;
     const sliderBgs = document.querySelectorAll('.hero-slider-bg');
