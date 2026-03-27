@@ -2130,7 +2130,7 @@ h1, h2, h3, h4, p, .location, .venue-name, .venue-address, .family-info, .couple
 
 /* Fix for background-attachment delay on mobile */
 @media (max-width: 1024px), (pointer: coarse) {
-    .quote, .footer {
+    .quote, .footer, .rsvp-section {
         background-attachment: scroll !important;
         background-position: center center !important;
     }
