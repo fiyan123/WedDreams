@@ -1945,3 +1945,11 @@ img {
 h1, h2, h3, h4, p, .location, .venue-name, .venue-address, .family-info, .couple-name {
     transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
+
+/* Fix for background-attachment delay on mobile */
+@media (max-width: 1024px), (pointer: coarse) {
+    .quote, .footer {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+    }
+}
