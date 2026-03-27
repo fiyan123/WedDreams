@@ -104,12 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btnOpen.style.opacity = '0';
         btnOpen.style.pointerEvents = 'none';
 
-        const guestCard = document.querySelector('.guest-card');
-        if (guestCard) {
-            guestCard.style.transition = 'all 0.6s ease';
-            guestCard.style.opacity = '0';
-        }
-
         // Start music
         audio.play().catch(e => console.log("Audio play deferred"));
 
