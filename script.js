@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     const isMobile = window.innerWidth <= 768;
                     startFlowerShower(isMobile ? 40 : 80); // Less particles on mobile
-                    
+
                     // Refresh AOS attributes once user is viewing content
                     AOS.refresh();
                 }, 1000);
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function nextHeroBackground() {
         // Prepare next image
         currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
-        
+
         // Find next background layer
         const nextBgIndex = (activeBgIndex + 1) % sliderBgs.length;
         const nextBg = sliderBgs[nextBgIndex];
@@ -273,10 +273,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Set next image and fade in
         nextBg.style.backgroundImage = `url('${heroImages[currentHeroIndex]}')`;
         nextBg.classList.add('active');
-        
+
         // Fade out current
         currentBg.classList.remove('active');
-        
+
         // Update active index
         activeBgIndex = nextBgIndex;
     }
@@ -324,11 +324,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnGiftToggle && giftContent) {
         btnGiftToggle.addEventListener('click', () => {
             const isHidden = giftContent.classList.contains('gift-content-hidden');
-            
+
             if (isHidden) {
                 giftContent.classList.replace('gift-content-hidden', 'gift-content-visible');
                 btnGiftToggle.innerHTML = '<i class="fas fa-times"></i> Tutup';
-                
+
                 // Refresh AOS to trigger animations inside the revealed content
                 setTimeout(() => {
                     AOS.refresh();
@@ -358,6 +358,154 @@ document.addEventListener('DOMContentLoaded', () => {
             setTheme(e.matches ? 'dark' : 'light');
         }
     });
+
+    // RSVP & Wishes Logic (Local Storage)
+    const rsvpForm = document.getElementById('rsvp-form');
+    const btnBatal = document.getElementById('btn-batal');
+    const wishesList = document.getElementById('wishes-list');
+
+    // Google Sheets Apps Script Web App URL
+    // TODO: Ganti URL di bawah ini dengan URL hasil Deploy Google Apps Script Anda!
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwNoeFYRleJligITRGf-FmzRGTIH1k77C4YhsJwO7d1_BOQ9a-lbH62w6ItB5IeRNzqOA/exec';
+
+    const renderWishes = async () => {
+        if (!wishesList) return;
+
+        try {
+            // Jika URL belum diganti, batalkan fetch
+            if (SCRIPT_URL.includes('GANTI_DENGAN_URL_ANDA')) {
+                wishesList.innerHTML = '<p style="text-align: center; color: #ffeb3b; font-style: italic;">Sistem komentar belum terhubung ke Google Sheets.<br>Silakan masukkan SCRIPT_URL di script.js terlebih dahulu.</p>';
+                return;
+            }
+
+            const response = await fetch(SCRIPT_URL);
+            const wishes = await response.json();
+
+            wishesList.innerHTML = '';
+
+            if (wishes.length === 0) {
+                wishesList.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.7); font-style: italic;">Jadilah yang pertama memberikan ucapan!</p>';
+                return;
+            }
+
+            // Fungsi untuk mencegah XSS (Hacker menyematkan script berbahaya via form)
+            const escapeHTML = (str) => {
+                if (!str) return '';
+                return str.toString().replace(/[&<>'"]/g, 
+                    tag => ({
+                        '&': '&amp;',
+                        '<': '&lt;',
+                        '>': '&gt;',
+                        "'": '&#39;',
+                        '"': '&quot;'
+                    }[tag] || tag)
+                );
+            };
+
+            wishes.forEach(wish => {
+                // Konversi string timestamp ke Date object untuk diformat
+                const date = new Date(wish.timestamp);
+                let formattedDate = wish.timestamp; // Fallback jika tanggal tidak valid
+                if (!isNaN(date.getTime())) {
+                    formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${date.getHours()}:${(date.getMinutes() < 10 ? '0' : '') + date.getMinutes()}`;
+                }
+
+                const badgeClass = wish.kehadiran === 'Hadir' ? 'badge-hadir' : 'badge-absen';
+                const badgeIcon = wish.kehadiran === 'Hadir' ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-times-circle"></i>';
+                const statusText = wish.kehadiran === 'Hadir' ? 'Hadir' : 'Tidak Hadir';
+
+                const safeNama = escapeHTML(wish.nama);
+                const safePesan = escapeHTML(wish.pesan);
+
+                wishesList.innerHTML += `
+                    <div class="wish-card" data-aos="fade-up">
+                        <div class="wish-header">
+                            <h4 class="wish-name">${safeNama}</h4>
+                            <span class="badge ${badgeClass}">${badgeIcon} ${statusText}</span>
+                        </div>
+                        <p class="wish-message">${safePesan}</p>
+                        <span class="wish-time">${formattedDate} WIB</span>
+                    </div>
+                `;
+            });
+
+            // Re-initialize AOS karena DOM berubah
+            setTimeout(() => {
+                AOS.refresh();
+            }, 100);
+
+        } catch (error) {
+            console.error('Error fetching wishes:', error);
+            wishesList.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.7); font-style: italic;">Gagal memuat pesan. Periksa koneksi atau URL Script.</p>';
+        }
+    };
+
+    if (rsvpForm) {
+        // Initial render
+        renderWishes();
+
+        // Handle Add Wish
+        rsvpForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const nama = document.getElementById('nama').value.trim();
+            const kehadiran = document.getElementById('kehadiran').value;
+            const pesan = document.getElementById('pesan').value.trim();
+            const btnSubmit = document.getElementById('btn-kirim');
+
+            if (SCRIPT_URL.includes('GANTI_DENGAN_URL_ANDA')) {
+                alert('Tolong hubungkan URL Google Apps Script terlebih dahulu di script.js');
+                return;
+            }
+
+            if (nama && kehadiran && pesan) {
+                const newWish = {
+                    nama,
+                    kehadiran,
+                    pesan,
+                    timestamp: new Date().toISOString()
+                };
+
+                // Ubah tombol jadi status loading
+                const originalBtnText = btnSubmit.innerHTML;
+                btnSubmit.innerHTML = 'Mengirim... <i class="fas fa-spinner fa-spin"></i>';
+                btnSubmit.disabled = true;
+
+                try {
+                    // Send request as text/plain to avoid CORS preflight issues
+                    const response = await fetch(SCRIPT_URL, {
+                        method: 'POST',
+                        body: JSON.stringify(newWish)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.status === 'success') {
+                        // Reset form
+                        rsvpForm.reset();
+                        // Re-render isi daftar pesan
+                        await renderWishes();
+                    } else {
+                        throw new Error(result.message || 'Gagal menyimpan pesan');
+                    }
+                } catch (error) {
+                    console.error('Error saving wish:', error);
+                    alert('Terjadi kesalahan saat mengirim pesan. Coba lagi nanti.');
+                } finally {
+                    btnSubmit.innerHTML = originalBtnText;
+                    btnSubmit.disabled = false;
+                }
+            }
+        });
+
+        // Handle Cancel Button
+        if (btnBatal) {
+            btnBatal.addEventListener('click', () => {
+                rsvpForm.reset();
+            });
+        }
+    }
+
 });
 
 // Copy to Clipboard Function for Wedding Gift

@@ -742,32 +742,214 @@ h3 {
 }
 
 /* RSVP Section */
+.rsvp-section {
+    position: relative;
+    background-image: url('assets/image/m.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--white);
+}
+
+.rsvp-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.rsvp-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.rsvp-header .section-title {
+    color: var(--gold-color);
+    margin-bottom: 10px;
+}
+
+.rsvp-header .section-subtitle {
+    font-family: var(--font-sans);
+    color: var(--white);
+    margin-bottom: 40px;
+}
+
 .rsvp-form {
     max-width: 600px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px;
     border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: left;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
 input,
 select,
 textarea {
     width: 100%;
-    padding: 15px;
+    padding: 15px 20px;
     margin-bottom: 20px;
-    background: var(--input-bg);
-    color: var(--body-text);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    color: #333;
+    border: none;
+    border-radius: 50px;
     font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+textarea {
+    border-radius: 20px;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.5);
+    background: #fff;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-rsvp {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-batal {
+    background-color: var(--gold-color);
+    color: var(--bg-dark);
+}
+
+.btn-batal:hover {
+    background-color: #b8972e;
+}
+
+.btn-kirim {
+    background-color: #4c6a65;
+    color: var(--white);
+}
+
+.btn-kirim:hover {
+    background-color: #3a524e;
+}
+
+.wishes-container {
+    max-width: 600px;
+    margin: 40px auto 0;
+    text-align: left;
 }
 
 .wishes-list {
-    margin-top: 30px;
     max-height: 400px;
     overflow-y: auto;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.wishes-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.wishes-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.wishes-list::-webkit-scrollbar-thumb {
+    background: var(--gold-color);
+    border-radius: 10px;
+}
+
+.wish-card {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--body-text);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--gold-color);
+    text-align: left;
+}
+
+.wish-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.wish-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
     color: var(--white);
+}
+
+.badge-hadir {
+    background-color: #28a745;
+}
+
+.badge-absen {
+    background-color: #dc3545;
+}
+
+.wish-message {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444;
+}
+
+.wish-time {
+    display: block;
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 10px;
 }
 
 /* Footer Section */
