@@ -99,43 +99,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicBtn = document.getElementById('music-toggle');
 
     btnOpen.addEventListener('click', () => {
-        // Hide the button instead of the entire hero-content
-        btnOpen.style.transition = 'all 0.6s ease';
+        // Hide UI quickly
+        btnOpen.style.transition = 'all 0.4s ease';
         btnOpen.style.opacity = '0';
         btnOpen.style.pointerEvents = 'none';
-        setTimeout(() => btnOpen.style.display = 'none', 600);
 
-        // Hide guest card smoothly (the part containing the button)
         const guestCard = document.querySelector('.guest-card');
         if (guestCard) {
-            guestCard.style.transition = 'all 0.8s ease';
-            guestCard.style.background = 'transparent';
-            guestCard.style.boxShadow = 'none';
-            guestCard.style.border = 'none';
+            guestCard.style.transition = 'all 0.6s ease';
+            guestCard.style.opacity = '0';
         }
 
-        // Start Flower Shower Effect immediately
-        startFlowerShower();
-
-        // Start music immediately
+        // Start music
         audio.play().catch(e => console.log("Audio play deferred"));
 
-        // Wait a bit before scrolling
+        // Wait slightly for UI fade out before massive DOM operations
         setTimeout(() => {
-            // Unlock scroll
+            // Unlock scroll and display content
             document.body.classList.remove('no-scroll');
-
-            // Unlock content
             mainContent.classList.replace('content-hidden', 'content-visible');
 
-            // Scroll to content
-            mainContent.scrollIntoView({ behavior: 'smooth' });
+            // Give browser a frame to paint before triggering smooth scroll
+            requestAnimationFrame(() => {
+                mainContent.scrollIntoView({ behavior: 'smooth' });
 
-            // Refresh AOS
-            setTimeout(() => {
-                AOS.refresh();
-            }, 500);
-        }, 800);
+                // Defer heavy calculations (AOS refresh & 100+ DOM particles) 
+                // until after the smooth scroll is mostly finished (~1s delay)
+                setTimeout(() => {
+                    const isMobile = window.innerWidth <= 768;
+                    startFlowerShower(isMobile ? 40 : 80); // Less particles on mobile
+                    
+                    // Refresh AOS attributes once user is viewing content
+                    AOS.refresh();
+                }, 1000);
+            });
+        }, 400); // UI fadeout time
     });
 
     // Music Toggle
@@ -177,12 +175,12 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
 
     // Flower Shower Effect
-    function startFlowerShower() {
+    function startFlowerShower(customCount) {
         const container = document.createElement('div');
         container.className = 'petal-container';
         document.body.appendChild(container);
 
-        const petalCount = 120; // Increased count
+        const petalCount = customCount || 80;
         const colors = ['#ff4d6d', '#ff758f', '#ff85a1', '#f8bbd0', '#c9184a', '#a4133c']; // More vibrant colors
 
         for (let i = 0; i < petalCount; i++) {
